@@ -27,11 +27,6 @@ class TestKotlin {
             }
         }
 
-        fun getNum(num: Int): Int {
-            var num = num
-            num++
-            return num
-        }
     }
 
 }
