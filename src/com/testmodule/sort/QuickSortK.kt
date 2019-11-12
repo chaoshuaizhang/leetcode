@@ -1,4 +1,4 @@
-package com.leetcode.sort
+package com.testmodule.sort
 
 class QuickSortK {
 

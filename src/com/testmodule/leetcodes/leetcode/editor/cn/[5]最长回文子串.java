@@ -1,4 +1,4 @@
-package com.leetcode.leetcodes.leetcode.editor.cn;
+package com.testmodule.leetcodes.leetcode.editor.cn;
 //给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
 //
 // 示例 1： 
@@ -15,7 +15,7 @@ package com.leetcode.leetcodes.leetcode.editor.cn;
 // 
 // Related Topics 字符串 动态规划
 
-//leetcode submit region begin(Prohibit modification and deletion)
+//testmodule submit region begin(Prohibit modification and deletion)
 class Solution5 {
 
     public static void main(String[] args) {
@@ -39,4 +39,4 @@ class Solution5 {
         return "";
     }
 }
-//leetcode submit region end(Prohibit modification and deletion)
+//testmodule submit region end(Prohibit modification and deletion)

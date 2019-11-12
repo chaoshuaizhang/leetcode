@@ -1,4 +1,4 @@
-package com.leetcode.leetcodes.leetcode.editor.cn;
+package com.testmodule.leetcodes.leetcode.editor.cn;
 //给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
 //
 // 示例 1: 
@@ -25,10 +25,7 @@ package com.leetcode.leetcodes.leetcode.editor.cn;
 // Related Topics 哈希表 双指针 字符串 Sliding Window
 
 
-import java.util.HashMap;
-import java.util.Map;
-
-//leetcode submit region begin(Prohibit modification and deletion)
+//testmodule submit region begin(Prohibit modification and deletion)
 class Solution3 {
     public static void main(String[] args) {
         System.out.println((new Solution3().lengthOfLongestSubstring2("123451qwertyuio")));
@@ -79,4 +76,4 @@ class Solution3 {
 
 
 }
-//leetcode submit region end(Prohibit modification and deletion)
+//testmodule submit region end(Prohibit modification and deletion)

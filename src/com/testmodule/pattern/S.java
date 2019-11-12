@@ -1,7 +1,5 @@
-package com.leetcode.pattern;
+package com.testmodule.pattern;
 
-
-import java.util.HashMap;
 
 public class S{
 

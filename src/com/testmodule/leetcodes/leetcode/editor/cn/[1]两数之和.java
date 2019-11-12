@@ -1,4 +1,4 @@
-package com.leetcode.leetcodes.leetcode.editor.cn;
+package com.testmodule.leetcodes.leetcode.editor.cn;
 //给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为
 // 目标值的那 两个 整数，并返回他们的数组下标。
 //
@@ -14,10 +14,9 @@ package com.leetcode.leetcodes.leetcode.editor.cn;
 // Related Topics 数组 哈希表
 
 
-import java.util.Arrays;
 import java.util.HashMap;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+//testmodule submit region begin(Prohibit modification and deletion)
 class Solution {
 
     public static void main(String[] args) {
@@ -91,4 +90,4 @@ class Solution {
 
 
 }
-//leetcode submit region end(Prohibit modification and deletion)
+//testmodule submit region end(Prohibit modification and deletion)

@@ -1,4 +1,4 @@
-package com.leetcode.testKotlin;
+package com.testmodule.testKotlin;
 
 import java.util.ArrayList;
 import java.util.List;
