@@ -31,3 +31,4 @@ LeetCode.iml
 .idea/
 lib/
 out/
+*.json
