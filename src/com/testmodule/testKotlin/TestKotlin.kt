@@ -16,6 +16,19 @@ fun main(args: Array<String>) {
     cartController.addCart(pro)
     cartController.addCart(pro)
     log.info("购物车数量 ${Carts.map.size}")
-    log.info("购物车数量 ${Carts.map}")
+
+    var l = mutableListOf<String>()
+    l.add("111")
+    l.add("222")
+    l.add("333")
+    log.info(l.size.toString())
+    var iterator = l.iterator()
+    while (iterator.hasNext()){
+        if(iterator.next() == "222")
+            iterator.remove()
+        log.info(l.size.toString())
+    }
+    log.info(l.size.toString())
+
 
 }

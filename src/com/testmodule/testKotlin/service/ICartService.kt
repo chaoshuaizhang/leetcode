@@ -5,7 +5,7 @@ import com.testmodule.testKotlin.entity.ProductEntity
 interface ICartService {
     fun addCart(cartItem: ProductEntity)
 
-    fun deleteCartItem(proSid: Int, count: Int)
+    fun deleteCartItem(proSid: Int)
 
     fun deleteAllCarts()
 }

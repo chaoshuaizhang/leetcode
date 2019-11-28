@@ -11,6 +11,7 @@ class CartController {
     private lateinit var cartService: ICartService
 
     private fun getCartService(): ICartService {
+        // service没有初始化时进行初始化
         if (!::cartService.isInitialized) {
             cartService = CartServiceImpl()
         }
@@ -21,8 +22,12 @@ class CartController {
         getCartService().addCart(item)
     }
 
-    fun deleteCartItem() {}
+    fun deleteCartItem(productSid: Int) {
+        getCartService().deleteCartItem(productSid)
+    }
 
-    fun deleteAllCarts() {}
+    fun deleteAllCarts() {
+        getCartService().deleteAllCarts()
+    }
 
 }
