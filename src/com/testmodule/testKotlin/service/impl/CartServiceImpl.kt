@@ -4,6 +4,7 @@ import com.testmodule.testKotlin.LogUtil
 import com.testmodule.testKotlin.Logger
 import com.testmodule.testKotlin.cart.Carts
 import com.testmodule.testKotlin.entity.ProductEntity
+import com.testmodule.testKotlin.enums.ShopEnums
 import com.testmodule.testKotlin.service.ICartService
 
 class CartServiceImpl : ICartService {
@@ -23,28 +24,16 @@ class CartServiceImpl : ICartService {
                 item.shopName = "上品奥莱Mall"
             }
             1008 -> logger.info("1008门店不做处理")
-            else -> item.shopName = "默认门店"
+            // 这里是不需要调用toString的，但是getShopName返回的类型是String?，无
+            // 法接收，是能借助于toString，可以看下toString的源码
+            else -> item.shopName = ShopEnums.getShopName(1).toString()
         }
         // 对门店供应商相同的商品进行合并
         val key = "${item.shopSid}${item.supplySid}"
         logger.info("加入购物车之前的数量：${Carts.map[key]?.size}")
-        // 两种方式实现
-        /*
         when (Carts.map.containsKey(key)) {
             true -> Carts.map[key]?.add(item)
             false->{
-                val list = mutableListOf<ProductEntity>()
-                list.add(item)
-                Carts.map[key] = list
-            }
-        }
-        */
-        // 下边使用遍历的方式（目的是为了学习map的遍历）
-
-        Carts.map.forEach { k, v ->
-            if (k.equals(key)) {
-                v.add(item)
-            } else {
                 val list = mutableListOf<ProductEntity>()
                 list.add(item)
                 Carts.map[key] = list
@@ -59,4 +48,5 @@ class CartServiceImpl : ICartService {
     override fun deleteAllCarts() {
         println("删除购物车")
     }
+
 }

@@ -19,23 +19,41 @@ package com.testmodule.leetcodes.leetcode.editor.cn;
 class Solution5 {
 
     public static void main(String[] args) {
-        new Solution5().longestPalindrome("123456qwert");
     }
 
-    public String longestPalindrome(String s) {
-        if (s != null && !s.equals("")) {
-            return null;
+    /**
+     * 暴力穷举
+     *
+     * @param s
+     * @return
+     */
+    public static String longestPalindrome(String s) {
+        String maxStr = "";
+        int max = 0;
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
+            for (int j = i + 1; j <= length; j++) {
+                int tmpLength = j - i;
+                if (tmpLength <= max) {
+                    continue;
+                }
+                int k;
+                for (k = 0; k < tmpLength / 2; k++) {
+                    if (s.charAt(i + k) != s.charAt(i + tmpLength - 1 - k)) {
+                        break;
+                    }
+                }
+                if (k == tmpLength / 2) {
+                    maxStr = s.substring(i, j);
+                    max = tmpLength;
+                }
+            }
         }
-        if (s.length() < 3) {
-            return s;
-        }
-        int MAX = 0;
-        StringBuilder MAX_STR = new StringBuilder(s);
-        String sReverse = MAX_STR.reverse().toString();
-        MAX_STR.delete(0, MAX_STR.length());
-        for (int i = 0, j = 2; i < s.length(); i++, j++) {
+        return maxStr;
+    }
 
-        }
+    public String centerExpansion(String s) {
+
         return "";
     }
 }

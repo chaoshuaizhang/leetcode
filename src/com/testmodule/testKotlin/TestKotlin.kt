@@ -16,5 +16,6 @@ fun main(args: Array<String>) {
     cartController.addCart(pro)
     cartController.addCart(pro)
     log.info("购物车数量 ${Carts.map.size}")
+    log.info("购物车数量 ${Carts.map}")
 
 }
