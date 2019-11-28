@@ -1,38 +1,20 @@
 package com.testmodule.testKotlin
 
-import java.util.ArrayList
+import com.testmodule.testKotlin.cart.CartController
+import com.testmodule.testKotlin.cart.Carts
+import com.testmodule.testKotlin.entity.ProductEntity
+import kotlin.test.todo
 
-class TestKotlin {
-    internal var listStr: List<String> = ArrayList()
+// kotlin中的main函数写在类里会被认为是一个普通的函数
 
-    private class InnerStaticClass {
-        private fun innerFun() {}
-    }
+fun main(args: Array<String>) {
+    val log = LogUtil(Logger())
+    log.info("----- 千秋万载 一统江湖 -----")
+    val pro = ProductEntity(1, 1002, 100234,
+            "AE86", 100001, "外套")
+    var cartController = CartController()
+    cartController.addCart(pro)
+    cartController.addCart(pro)
+    log.info("购物车数量 ${Carts.map.size}")
 
-    private inner class InnerClass {
-        private fun `fun`() {}
-    }
-
-    companion object {
-        //kotlin的list是不可变的，若要可变，需用mutable类型
-        internal var listInt: MutableList<Int> = mutableListOf()
-        @JvmStatic
-        fun main(args: Array<String>) {
-            println("Test Kotlin")
-            listInt.add(123)
-            listInt.add(235)
-            for (i in listInt.indices) {
-                val integer = listInt[i]
-                println(integer)
-            }
-        }
-
-    }
-
-}
-
-internal class OutKotlinClass {
-    fun getStr(str: String): String {
-        return str
-    }
 }

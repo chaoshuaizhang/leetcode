@@ -1,4 +1,4 @@
-package com.testmodule.testKotlin;
+package com.testmodule.testKotlin._javatmp;
 
 import java.util.ArrayList;
 import java.util.List;
