@@ -1,4 +1,4 @@
-package com.testmodule.testKotlin
+package com.testmodule.testKotlin.util
 
 interface BaseLog {
     fun info(info: String)

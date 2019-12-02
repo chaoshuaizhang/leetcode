@@ -1,7 +1,7 @@
 package com.testmodule.testKotlin.cart
 
-import com.testmodule.testKotlin.LogUtil
-import com.testmodule.testKotlin.Logger
+import com.testmodule.testKotlin.util.LogUtil
+import com.testmodule.testKotlin.util.Logger
 import com.testmodule.testKotlin.entity.ProductEntity
 import com.testmodule.testKotlin.service.ICartService
 import com.testmodule.testKotlin.service.impl.CartServiceImpl
@@ -18,16 +18,12 @@ class CartController {
         return cartService
     }
 
-    fun addCart(item: ProductEntity) {
-        getCartService().addCart(item)
-    }
+    fun addCart(item: ProductEntity) = getCartService().addCart(item)
 
-    fun deleteCartItem(productSid: Int) {
-        getCartService().deleteCartItem(productSid)
-    }
+    fun showCarts() = getCartService().deleteAllCarts()
 
-    fun deleteAllCarts() {
-        getCartService().deleteAllCarts()
-    }
+    fun deleteCartItem(productSid: Int) = getCartService().deleteCartItem(productSid)
+
+    fun deleteAllCarts() = getCartService().deleteAllCarts()
 
 }
