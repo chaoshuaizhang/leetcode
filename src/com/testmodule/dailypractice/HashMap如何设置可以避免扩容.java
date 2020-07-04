@@ -10,6 +10,7 @@ public class HashMap如何设置可以避免扩容 {
     public static void main(String[] args) {
         TestHashMap testHashMap = new TestHashMap();
         System.out.println(testHashMap.tableSizeFor(1000000) * 0.75);
+//        System.out.println(testHashMap.tableSizeFor2(16) );
         System.out.println(testHashMap.tableSizeFor(100000) * 0.75);
         System.out.println(testHashMap.tableSizeFor(10000) * 0.75);
         System.out.println(testHashMap.tableSizeFor(1000) * 0.75);
@@ -34,6 +35,16 @@ public class HashMap如何设置可以避免扩容 {
             n |= tmp;
             tmp = n >>> 16;
             n |= tmp;
+            return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+        }
+
+        final int tableSizeFor2(int cap) {
+            int n = cap;
+            n |= n >>> 1;
+            n |= n >>> 2;
+            n |= n >>> 4;
+            n |= n >>> 8;
+            n |= n >>> 16;
             return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
         }
 

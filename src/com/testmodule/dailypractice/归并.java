@@ -2,10 +2,11 @@ package com.testmodule.dailypractice;
 
 public class 归并 {
     public static void main(String[] args) {
-        int[] num1 = new int[]{3, 652, 4, 6, 31, 76, 42, 45, 5};
-        int[] num2 = new int[]{43, 56, 3, 67, 26, 743, 23, 565, 134, 31, 35, 645, 23};
+        int[] num1 = new int[]{3, 4, 6, 31, 42, 45, 76, 105};
+        int[] num2 = new int[]{4, 6, 13, 17, 26, 33, 43, 65, 134, 131, 135, 645, 2113};
         merge(num1, num2);
     }
+
     /**
      * 归并两个有序数组
      *
@@ -15,15 +16,13 @@ public class 归并 {
     private static void merge(int[] nums1, int[] nums2) {
         int[] nums = new int[nums1.length + nums2.length];
         int count = 0;
-        int i;
+        int i = 0;
         int j = 0;
-        for (i = 0; i < nums1.length; ) {
-            for (j = 0; j < nums2.length && i < nums1.length; ) {
-                if (nums1[i] < nums2[j]) {
-                    nums[count++] = nums1[i++];
-                } else {
-                    nums[count++] = nums2[j++];
-                }
+        for (j = 0; j < nums2.length && i < nums1.length; ) {
+            if (nums1[i] < nums2[j]) {
+                nums[count++] = nums1[i++];
+            } else {
+                nums[count++] = nums2[j++];
             }
         }
         for (; i < nums1.length; i++) {

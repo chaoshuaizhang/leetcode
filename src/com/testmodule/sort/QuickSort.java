@@ -7,7 +7,8 @@ import java.util.Arrays;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] nums = {7, 3, 9, 12, 52, 1, 4, -7, 35, 27, 32};
+        int[] nums = {1,2,3,4,5,6,7,8,9};
+//        int[] nums = {7, 3, 9, 12, 52, 1, 4, -7, 35, 27, 32};
         quick(nums, 0, nums.length - 1);
         Arrays.stream(nums).forEach(n -> System.out.print(String.format("%s%d", " ", n)));
     }

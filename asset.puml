@@ -1,0 +1,12 @@
+@startuml
+Activity -> AppCompatActivity: getResources
+AppCompatActivity -> ContextThemeWrapper:  getResources
+ContextThemeWrapper -> ContextThemeWrapper: getResourcesInternal
+ContextThemeWrapper -> ContextImpl: ContextThemeWrapper
+ContextImpl -> ContextImpl: getResources
+ContextImpl -> LoadedApk: getResource
+LoadedApk -> ClassLoader: getResources
+ClassLoader -> BootClassLoader:
+BootClassLoader -> BootClassLoader: findResource
+BootClassLoader -> VMClassLoader: getResource
+@enduml

@@ -1,4 +1,4 @@
-package com.testmodule;
+package com.testmodule.collections;
 
 import java.util.TimerTask;
 import java.util.concurrent.Executors;

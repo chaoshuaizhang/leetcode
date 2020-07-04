@@ -31,31 +31,15 @@ class R<A : Any> {
     }
 
     companion object {
-        fun <T : Any> Y(success: Boolean, info: String): R<T> {
-            return Y(success, info, null)
-        }
 
-        fun <T : Any> Y(data: T): R<T> {
-            return Y(true, null, data)
-        }
-
-        fun <T : Any> Y(success: Boolean, data: T): R<T> {
-            return Y(success, null, data)
-        }
-
-        fun <T : Any> Y(success: Boolean, info: String?, data: T?): R<T> {
+        /*
+        * 这一个命名函数代替了之前的一系列不定参数
+        * */
+        fun <T : Any> Y(success: Boolean = true, info: String = "操作成功！", data: T? = null): R<T> {
             return R(success, info, data)
         }
 
-        fun <T : Any> N(success: Boolean, info: String): R<T> {
-            return R(success, info, null)
-        }
-
-        fun <T : Any> N(success: Boolean, data: T?): R<T> {
-            return R(success, null, data)
-        }
-
-        fun <T : Any> N(success: Boolean, info: String?, data: T?): R<T> {
+        fun <T : Any> N(data: T?, success: Boolean = false, info: String = "操作失败！"): R<T> {
             return R(success, info, data)
         }
     }

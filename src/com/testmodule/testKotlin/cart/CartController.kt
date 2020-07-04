@@ -12,6 +12,7 @@ class CartController {
 
     private fun getCartService(): ICartService {
         // service没有初始化时进行初始化
+        // ::用于获取一个lateinit修饰的属性
         if (!::cartService.isInitialized) {
             cartService = CartServiceImpl()
         }

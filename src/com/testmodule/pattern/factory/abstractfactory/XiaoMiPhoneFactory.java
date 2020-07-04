@@ -1,13 +1,13 @@
-//package com.testmodule.pattern.factory.abstractfactory;
-//
-//public class XiaoMiPhoneFactory implements AbstractFactory {
-//    @Override
-//    public PhoneProduct createScreenProduct() {
-//        return new XiaoMiScreenProduct();
-//    }
-//
-//    @Override
-//    public PhoneProduct createPowerProduct() {
-//        return new XiaoMiPowerProduct();
-//    }
-//}
+package com.testmodule.pattern.factory.abstractfactory;
+
+public class XiaoMiPhoneFactory implements AbstractFactory {
+    @Override
+    public ScreenPhoneProduct createScreenProduct() {
+        return new XiaoMiScreenProduct();
+    }
+
+    @Override
+    public PowerPhoneProduct createPowerProduct() {
+        return new XiaoMiPowerProduct();
+    }
+}

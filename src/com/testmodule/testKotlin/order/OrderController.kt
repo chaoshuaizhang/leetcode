@@ -21,7 +21,7 @@ import kotlin.collections.set
 /*
 * 注意，ordercontroller中的日志实现方式和其他controller中的不一样
 */
-class OrderController(myLogger: BaseLog) : BaseLog by myLogger {
+class OrderController(val myLogger: BaseLog) : BaseLog by myLogger {
     private lateinit var orderService: IOrderService
 
     fun getOrderService(): IOrderService {
@@ -37,7 +37,7 @@ class OrderController(myLogger: BaseLog) : BaseLog by myLogger {
         // 代支付状态
         orderEntity.status = 2
         DataRepository.orderMap.put(orderEntity.orderNo, orderEntity)
-        return R.Y(true, orderEntity)
+        return R.Y(success = true,data = orderEntity)
     }
 
     /*
@@ -53,6 +53,5 @@ class OrderController(myLogger: BaseLog) : BaseLog by myLogger {
         var orderEntity = DataRepository.orderMap[orderNo]
         orderEntity?.status = status
     }
-
 
 }

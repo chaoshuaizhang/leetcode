@@ -2,14 +2,17 @@ package com.testmodule.testKotlin
 
 import com.google.gson.Gson
 import com.testmodule.testKotlin.cart.CartController
-import com.testmodule.testKotlin.entity.Base
 import com.testmodule.testKotlin.entity.ProductEntity
 import com.testmodule.testKotlin.order.OrderController
 import com.testmodule.testKotlin.repository.DataRepository
+import com.testmodule.testKotlin.testdemo.ProductGenerator
 import com.testmodule.testKotlin.util.LogUtil
 import com.testmodule.testKotlin.util.Logger
 import javafx.application.Application.launch
-import kotlinx.coroutines.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import java.math.BigDecimal
 import java.util.*
 import kotlin.random.Random
@@ -29,18 +32,57 @@ fun main(args: Array<String>) = runBlocking {
     }
     var cartController = CartController()
     val pro = proGenerateLaunch.await()
+
+    pro.let {
+        it.shopSid = 2001
+    }
+    var a = pro.apply {
+        shopSid = 3001
+    }
+    pro.run {
+        shopSid = 5001
+    }
+
+    var aaa = pro.also {
+        it.shopSid = 6001
+    }
+    println(aaa.shopSid)
+    println(pro.shopSid)
+    println("==============================================================")
+
+
+
     log.info(pro.toString())
+
+
+
     cartController.addCart(pro)
     log.info("购物车数量 ${DataRepository.cartMap.size}")
     log.info("开始创建订单")
     var orderController = OrderController(Logger())
     val createOrder = orderController.createOrder(Date(), DataRepository.cartMap)
     log.info("订单创建完成${Gson().toJson(createOrder)}")
+    var p = ProductGenerator()
+    println("返回函数的函数 ： " + p.testReturnFun("1234567"))
+    val ss = listOf("1", "2", "3", "4", "5")
+    ss.forEachIndexed { index, s ->
+        println("" + index + "  " + s)
+    }
+    for(i in 5 downTo 0){
+        println("---  $i")
+    }
+    val aa = mutableListOf<String>()
+    aa.add("A")
+    aa.add("B")
+    aa.add("C")
+    a(aa.toMutableList())
 
-    var b = Base<String>()
-    b.i("111")
-    b.i(111)
-    b.i(111.15)
+}
+
+fun a(o:MutableList<Any>){
+    o.forEach {
+        println("哈哈哈哈   $it")
+    }
 }
 
 suspend fun a() {
@@ -48,23 +90,5 @@ suspend fun a() {
     launch()
 }
 
-class ProductGenerator {
-    fun generatePro(): ProductEntity? {
-        "12qw123".filter {
-            it == '1' || it == 'q'
-        }
-        return null
-    }
 
-    fun String.filter(predicate: (Char) -> Boolean): String {
-        val sb = StringBuilder()
-        for (index in 0 until length) {
-            if (predicate(get(index))) {
-                println("相等 $index")
-            } else {
-                println("不等 $index")
-            }
-        }
-        return sb.toString()
-    }
-}
+
