@@ -759,8 +759,7 @@
 //     * nonpositive.
 //     */
 //    @SuppressWarnings("unchecked")
-//    public ConcurrentHashMap(int initialCapacity,
-//                             float loadFactor, int concurrencyLevel) {
+//    public ConcurrentHashMap(int initialCapacity, float loadFactor, int concurrencyLevel) {
 //        if (!(loadFactor > 0) || initialCapacity < 0 || concurrencyLevel <= 0)
 //            throw new IllegalArgumentException();
 //        if (concurrencyLevel > MAX_SEGMENTS)
@@ -783,9 +782,7 @@
 //        while (cap < c)
 //            cap <<= 1;
 //        // create segments and segments[0]
-//        Segment<K,V> s0 =
-//                new Segment<K,V>(loadFactor, (int)(cap * loadFactor),
-//                        (HashEntry<K,V>[])new HashEntry[cap]);
+//        Segment<K,V> s0 = new Segment<K,V>(loadFactor, (int)(cap * loadFactor), (HashEntry<K,V>[])new HashEntry[cap]);
 //        Segment<K,V>[] ss = (Segment<K,V>[])new Segment[ssize];
 //        UNSAFE.putOrderedObject(ss, SBASE, s0); // ordered write of segments[0]
 //        this.segments = ss;
@@ -1085,8 +1082,7 @@
 //            throw new NullPointerException();
 //        int hash = hash(key);
 //        int j = (hash >>> segmentShift) & segmentMask;
-//        if ((s = (Segment<K,V>)UNSAFE.getObject          // nonvolatile; recheck
-//                (segments, (j << SSHIFT) + SBASE)) == null) //  in ensureSegment
+//        if ((s = (Segment<K,V>)UNSAFE.getObject(segments, (j << SSHIFT) + SBASE)) == null) //  in ensureSegment
 //            s = ensureSegment(j);
 //        return s.put(key, hash, value, false);
 //    }

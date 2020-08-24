@@ -6,6 +6,6 @@ package com.testmodule.pattern.factory.abstractfactory;
 public class XiaoMiPowerProduct implements PowerPhoneProduct {
     @Override
     public void productPower() {
-        System.out.println("小米电池工厂创建一个小米电池...");
+        System.out.println("小米工厂创建一个小米电池...");
     }
 }

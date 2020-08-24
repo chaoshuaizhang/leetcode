@@ -1,5 +1,9 @@
 package com.testmodule.pattern.factory.factorymethod;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
 public class TestFactoryMethod {
     public static void main(String[] args) {
 
@@ -19,5 +23,14 @@ public class TestFactoryMethod {
         //如果想切换产品，直接改变产品就行
         PhoneProduct product = factory.create();
         product.productFeatures();
+        List<String> listStrs = new ArrayList<>();
+        listStrs.add("AAA");
+        List<? extends Object> strs = listStrs;
+        System.out.println(strs.get(0));
+
+        List<? super String> list = new ArrayList<>();
+        list.add("");
+        ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+        lock.readLock().lock();
     }
 }

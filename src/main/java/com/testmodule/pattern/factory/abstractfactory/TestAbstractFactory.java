@@ -1,7 +1,15 @@
 package com.testmodule.pattern.factory.abstractfactory;
 
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
 public class TestAbstractFactory {
     public static void main(String[] args) {
+
+        String s="12345";
+        String s1="12345";
+
+        System.out.println(s == s1);
         /*
         * 对于抽象工厂来说：它扩展产品组是很方便的，比如现在要添加一个生产魅族周边产品的工厂，
         * 只需要添加一个魅族工厂以及相关产品就行，不需要修改其他的工厂。
@@ -15,5 +23,15 @@ public class TestAbstractFactory {
         ScreenPhoneProduct screenProduct = factory.createScreenProduct();
         screenProduct.productScreen();
         powerProduct.productPower();
+
+
+
+        ThreadLocal<String> threadLocal = new ThreadLocal<>();
+        threadLocal.set("ASD123");
+        threadLocal.remove();
+        threadLocal = null;
+        String s3 = threadLocal.get();
+
+
     }
 }

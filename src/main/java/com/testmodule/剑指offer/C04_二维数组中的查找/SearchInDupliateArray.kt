@@ -8,33 +8,13 @@ import java.util.*
  * @author  changePosition
  * @date  2020/3/4/004 1:01
  */
+
 fun main() {
     val search = SearchInDupliateArray()
-    val arr = arrayOfNulls<Array<Int>>(5)
-    arr[0] = arrayOf(1, 3, 5, 7, 9)
-    arr[1] = arrayOf(3, 5, 7, 9, 11)
-    arr[2] = arrayOf(6, 9, 10, 12, 14)
-    arr[3] = arrayOf(9, 11, 13, 15, 17)
-    arr[4] = arrayOf(121, 161, 201, 241, 281)
-    search.test(arr, 10)
-    search.test(arr, 67)
-    search.test(arr, 21)
-    search.test(arr, 2)
-    search.test(arr, 7)
-    search.test(arr, 19)
-    search.test(arr, -2)
-    search.test(arr, 6)
-    search.test(arr, 91)
-    search.test(arr, 1)
-    search.test(arr, 15)
-    search.test(arr, 17)
-
-    var str1 = "hello"
-    var str2 = "hello"
-    var arr1 = arrayOf("w", "o", "r", "l", "d")
-    var arr2 = arrayOf("w", "o", "r", "l", "d")
-    println(str1 == str2)
-    println(arr1 == arr2)
+    val arr = arrayOfNulls<Array<Int>>(2)
+    arr[0] = arrayOf(1, 3, 5, 6, 7)
+    arr[1] = arrayOf(3, 5, 8, 9, 11)
+    search.test(arr, 8)
 }
 
 class SearchInDupliateArray {
@@ -60,12 +40,12 @@ class SearchInDupliateArray {
                         println("不包含")
                         return
                     } else {
-                        if (i == arr[i]!!.size - 1) {
-                            println("不包含")
+                        if (j == arr[i]!!.size - 1) {
+                            testLastDown(arr, i + 1, j - 1, num)
                             return
                         } else {
-                            // 开始从左边上一个位置的向下一个位置找
-                            testLastDown(arr, i + 1, j - 1, num)
+                            // 开始从左边位置的下一个位置 倒着找
+                            println("不包含")
                             return
                         }
                     }
@@ -89,7 +69,8 @@ class SearchInDupliateArray {
     * */
     private fun testLastDown(arr: Array<Array<Int>?>, i: Int, j: Int, num: Int) {
         if (arr[i]!![j] > num) {
-            if (j == 0 || i == arr.size - 1) {
+            var s = arr.size
+            if (j == 0 || i == s - 1) {
                 println("不包含")
                 return
             } else {

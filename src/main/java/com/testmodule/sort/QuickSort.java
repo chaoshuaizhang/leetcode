@@ -39,13 +39,13 @@ public class QuickSort {
                 //说明不需要交换，hight向前移动一位
                 hight--;
             }
-            //说明low<hight了 或者 碰到比target小的了，怎么办？交换，把小的放到到前边
+            //说明low >= hight了 或者 碰到比target小的了，怎么办？交换，把小的放到到前边
             nums[low] = nums[hight];
 
             while (low < hight && target >= nums[low]) {
                 low++;
             }
-            //说明low<hight了 或者 碰到比target大的了，怎么办？交换，把大的放到到后边
+            //说明low >= hight了 或者 碰到比target大的了，怎么办？交换，把大的放到到后边
             nums[hight] = nums[low];
         }
 

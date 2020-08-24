@@ -1,9 +1,15 @@
 package com.testmodule.testKotlin.util
 
+import com.alibaba.fastjson.JSONObject
 import net.sourceforge.pinyin4j.PinyinHelper
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType
+import java.io.BufferedReader
+import java.io.FileInputStream
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.lang.Exception
 
 fun main() {
 //    val array = arrayOf("bbb","章魚","ced", "de", "as", "东皇太一","宫本武藏","王昭君","李元芳")
@@ -59,6 +65,31 @@ class SortUtil {
                 else -1
             })
             return array
+        }
+
+        fun parsePageJson(): Map<String, String> {
+            var stream: InputStream? = null
+            var bufferedReader: BufferedReader? = null
+            val sb: StringBuilder
+            try {
+                stream = FileInputStream("F:\\TestString.java")
+                bufferedReader = BufferedReader(InputStreamReader(stream))
+                sb = StringBuilder()
+                bufferedReader.lines().forEach {
+                    sb.append(it)
+                }
+            } finally {
+                try {
+                    stream?.close()
+                } catch (e: Exception) {
+                }
+                try {
+                    bufferedReader?.close()
+                } catch (e: Exception) {
+                }
+            }
+
+            return JSONObject.parseObject(sb.toString(), HashMap<String, String>()::class.java);
         }
     }
 }
